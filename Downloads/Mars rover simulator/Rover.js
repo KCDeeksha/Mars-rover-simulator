@@ -1,5 +1,3 @@
-// Rover.js
-
 export default class Rover {
     constructor(x, y, direction, plateau) {
       this.x = x;
