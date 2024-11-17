@@ -3,13 +3,13 @@ import { View, TextInput, Button, Text, StyleSheet } from 'react-native';
 import Rover from '../Rover';
 
 export default function App() {
-  const [plateauSize, setPlateauSize] = useState(''); // Plateau upper-right coordinates
-  const [initialPosition, setInitialPosition] = useState(''); // Initial rover position
-  const [commands, setCommands] = useState(''); // Movement commands
-  const [output, setOutput] = useState(''); // Output position
+  const [plateauSize, setPlateauSize] = useState(''); 
+  const [initialPosition, setInitialPosition] = useState(''); 
+  const [commands, setCommands] = useState(''); 
+  const [output, setOutput] = useState(''); 
 
   const handleSubmit = () => {
-    // Parse plateau size
+   
     const [plateauWidth, plateauHeight] = plateauSize.split(' ').map(Number);
     if (isNaN(plateauWidth) || isNaN(plateauHeight)) {
       setOutput('Invalid plateau size');
@@ -17,7 +17,7 @@ export default function App() {
     }
     const plateau = { width: plateauWidth, height: plateauHeight };
 
-    // Parse initial position
+    
     const [initialX, initialY, initialDirection] = initialPosition.split(' ');
     const x = parseInt(initialX, 10);
     const y = parseInt(initialY, 10);
@@ -26,7 +26,7 @@ export default function App() {
       return;
     }
 
-    // Initialize and execute rover commands
+   
     const rover = new Rover(x, y, initialDirection, plateau);
     rover.executeCommands(commands);
     setOutput(rover.getPosition());
